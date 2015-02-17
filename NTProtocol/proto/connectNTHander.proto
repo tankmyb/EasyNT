@@ -1,0 +1,7 @@
+package proto;//生成的数据访问类所在的包名(注意：在此无需写全包路径)  
+option java_package = "com.easy.ntprotocol.protobuf";//生成的数据访问类所在包的全路径  
+option java_outer_classname = "ConnectNTHanderBuf";//生成的数据访问类的类名  
+
+message ConnectNTHanderReq {
+  required string no = 1;//用户KEY
+}

@@ -1,0 +1,40 @@
+<configuration scan="true" debug="false">
+	<property resource="log.properties" />
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME}/${LOG_FILENAME}.log</File>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>${LOG_LEVEL}</level>
+			<OnMismatch>DENY</OnMismatch>
+			<OnMatch>ACCEPT</OnMatch>
+		</filter>
+		<encoder charset="utf-8">
+			<Pattern>%msg%n</Pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/${LOG_FILENAME}_%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>365</maxHistory><!-- keep 1 year worth of history -->
+		</rollingPolicy>
+	</appender>
+	<!-- ========================================================================================= -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>${LOG_LEVEL}</level>
+			<OnMismatch>DENY</OnMismatch>
+			<OnMatch>ACCEPT</OnMatch>
+		</filter>
+		<encoder charset="utf-8">
+			<pattern>%d{HH:mm:ss} %level [%thread] %caller{1} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<root level="${LOG_LEVEL}">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
+	</root>
+	<logger name="org" level="ERROR" />
+	<logger name="net.sf.ehcache" level="ERROR"/>
+	<logger name="org.apache.ibatis" level="ERROR"/>
+	
+</configuration>

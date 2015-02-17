@@ -1,0 +1,18 @@
+package proto;//生成的数据访问类所在的包名(注意：在此无需写全包路径)  
+option java_package = "com.easy.ntprotocol.protobuf";//生成的数据访问类所在包的全路径  
+option java_outer_classname = "LoginBuf";//生成的数据访问类的类名  
+
+message LoginSyncReq {
+  required string userKey = 1;//用户KEY
+  required string usrNo = 2;//用户账号  
+}
+message LoginSyncResp {
+  required int32 ret = 1;//返回标识  
+}
+message LoginConnReq {
+  required string userKey = 1;//用户KEY
+  required string userNo = 2;//用户账号
+}
+message LoginConnResp {
+  required int32 ret = 1;//返回标识  
+}

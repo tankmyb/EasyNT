@@ -1,0 +1,13 @@
+package proto;//生成的数据访问类所在的包名(注意：在此无需写全包路径)  
+option java_package = "com.easy.ntprotocol.protobuf";//生成的数据访问类所在包的全路径  
+option java_outer_classname = "ChatBuf";//生成的数据访问类的类名  
+
+message ChatReq {
+  required string userKey = 1;//用户KEY
+  required string friendNo = 2;//好友账号
+  required string content = 3;//内容
+}
+message ChatResp {
+  required string friendNo = 1;//好友账号
+  required string content = 2;//内容
+}

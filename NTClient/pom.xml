@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.easy</groupId>
+		<artifactId>EasyNT</artifactId>
+		<version>1.0</version>
+	</parent>
+	<groupId>com.easy</groupId>
+	<artifactId>NTClient</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<name>NTC</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.easy</groupId>
+			<artifactId>NTNetty</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.easy</groupId>
+			<artifactId>NTProtocol</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.3</version>
+		</dependency>
+	</dependencies>
+	<distributionManagement>
+	<repository>
+		<id>releases</id>
+		<name>Releases</name>
+		<url>http://192.168.65.42:8081/nexus/content/repositories/releases/</url>
+	</repository>
+	<snapshotRepository>
+		<id>snapshots</id>
+		<name>Snapshots</name>
+		<url>http://192.168.65.42:8081/nexus/content/repositories/snapshots/</url>
+	</snapshotRepository>
+</distributionManagement>
+	
+	<build>
+		<defaultGoal>compile</defaultGoal>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>com.easy.ntclient.NTClientMain</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
