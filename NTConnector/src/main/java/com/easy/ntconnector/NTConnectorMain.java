@@ -37,7 +37,7 @@ public class NTConnectorMain {
 				port =10801;
 			}
 		}
-		System.out.println("===================");
+		System.out.println("==========656556=========");
 		ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		IService loginConnectService = (LoginConnectService)context.getBean("loginConnectService");
 		IService loginSyncService = (LoginSyncService)context.getBean("loginSyncService");
